@@ -1,7 +1,7 @@
 {
-  "name": "editron-wysiwyg-editor",
+  "name": "editron-index-editor",
   "version": "0.1.0",
-  "description": "WYSIWYG Editor for the Editron json-editor",
+  "description": "Editron - overview navigation editor",
   "main": "index.js",
   "scripts": {
     "test": "ava"
@@ -18,10 +18,11 @@
     "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
-    "codemirror": "^5.25.2",
+    "dragula": "^3.7.2",
     "gson-pointer": "^2.1.1",
+    "editron-core": "sueddeutsche/editron-core#develop",
     "mithril": "lhorie/mithril.js#next",
-    "mithril-material-forms": "github:sueddeutsche/mithril-material-forms#develop"
+    "mithril-material-forms": "sueddeutsche/mithril-material-forms#develop"
   },
   "ava": {
     "files": [

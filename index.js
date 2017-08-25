@@ -1,1 +1,1 @@
-module.exports = require("./wysiwygeditor");
+module.exports = require("./indexeditor");

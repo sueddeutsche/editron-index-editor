@@ -1,6 +1,9 @@
-# [editron](https://github.com/sueddeutsche/editron) WYSWIG-Editor
+# [editron](https://github.com/sueddeutsche/editron) Index Editor
 
-`npm i editron-wysiwyg-editor`
+Adds an editable navigation for a given datapoint (json-pointer).
+
+
+`npm i editron-index-editor`
 
 
 ## Plugin
@@ -9,20 +12,41 @@ Add it to your editors list, e.g.
 
 ```js
 const editors = [
-    require("editron-wysiwyg-editor")
+    require("editron-index-editor")
 ].concat(require("editron-core-editors"));
-```
-
-Add required dependencies to your page
-
-```html
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.0/js/medium-editor.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.0/css/medium-editor.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.0/css/themes/bootstrap.css">
 ```
 
 And optional import the custom wysiwyg-editor styles via sass
 
 ```scss
-@import "editron-wysiwyg-editor/wysiwyg-editor.scss";
+@import "editron-index-editor/index-editor.scss";
 ```
+
+And initialize explicitely by
+
+```js
+controller.createEditor("#", document.querySelector("#editor-navigation"), {
+    ui: { index: true }
+});
+```
+
+## Example 
+
+```js
+const Controller = require("editron-core/Controller");
+
+// instantiate controller
+const controller = new Controller(
+    mySchema, // schema used to build form
+    myDefaultData, // some data like { inputform: [...] }
+    [
+        require("editron-index-editor")
+    ].concat(require("editron-core-editors") // a list of editron-editors
+);
+
+controller.createEditor("#", document.querySelector("#editor-navigation"), {
+    ui: { index: true }
+});
+```
+
+
