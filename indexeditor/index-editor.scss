@@ -9,6 +9,10 @@
         font-size: $mmf-text-size--meta; // $mmf-text-size--list;
     }
 
+    li {
+        list-style: none;
+    }
+
     li.hasError > .editron-index__item > a.editron-index__title {
         color: $mmf-color--error;
     }
