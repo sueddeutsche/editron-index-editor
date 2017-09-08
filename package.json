@@ -1,6 +1,6 @@
 {
   "name": "editron-index-editor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Editron - overview navigation editor",
   "main": "index.js",
   "scripts": {
@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "dragula": "^3.7.2",
-    "gson-pointer": "^2.1.1",
     "editron-core": "sueddeutsche/editron-core#develop",
+    "gson-pointer": "^2.1.3",
     "mithril": "lhorie/mithril.js#next",
     "mithril-material-forms": "sueddeutsche/mithril-material-forms#develop"
   },

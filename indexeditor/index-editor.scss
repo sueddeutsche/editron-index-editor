@@ -9,6 +9,10 @@
         font-size: $mmf-text-size--meta; // $mmf-text-size--list;
     }
 
+    li {
+        list-style: none;
+    }
+
     li.hasError > .editron-index__item > a.editron-index__title {
         color: $mmf-color--error;
     }
@@ -83,26 +87,27 @@
     }
 
     &--sortable {}
-}
 
-.editron-index__icon--add:hover {
-    .mmf-icon {
-        color: $mmf-color--ok;
+    .editron-index__icon--add:hover {a
+        .mmf-icon {
+            color: $mmf-color--ok;
+        }
     }
-}
 
-.editron-index__icon {
-    color: #666;
-}
+    .editron-index__icon {
+        color: #666;
+    }
 
-.editron-index__icon--move {
-    cursor: ns-resize !important;
-}
+    .editron-index__icon--move:hover,
+    .editron-index__icon--move:hover .mmf-icon {
+        cursor: ns-resize !important;
+    }
 
-.editron-index__icon--dummy {
-    .mmf-icon {
-        color: #999;
+    .editron-index__icon--dummy {
+        .mmf-icon {
+            color: #999;
+            cursor: default !important;
+        }
         cursor: default !important;
     }
-    cursor: default !important;
 }

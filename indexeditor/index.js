@@ -2,12 +2,13 @@ const m = require("mithril");
 const gp = require("gson-pointer");
 const View = require("./View");
 const buildTree = require("./buildTree");
+const UI_PROPERTY = require("editron-core/utils/UISchema").UI_PROPERTY;
 
 
 class OverviewEditor {
 
     static editorOf(pointer, controller, options = {}) {
-        return options.ui && options.ui.index === true;
+        return options[UI_PROPERTY] && options[UI_PROPERTY].index === true;
     }
 
     constructor(pointer, controller, options) {
