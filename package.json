@@ -1,6 +1,6 @@
 {
   "name": "editron-index-editor",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Editron - overview navigation editor",
   "main": "index.js",
   "scripts": {
