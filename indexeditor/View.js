@@ -85,6 +85,9 @@ const EditableList = {
                         class: getClass(item.pointer, vnode.attrs.activeTarget, vnode.attrs.errors)
                     },
                     m(".editron-index__item.editron-index__item--sortable",
+                        {
+                            "data-nav": item.pointer
+                        },
                         m("span.editron-index__icon.editron-index__icon--dummy",
                             item.icon ? m("i.mmf-icon", item.icon) : ""
                         ),
@@ -141,6 +144,7 @@ const List = {
                 },
                 m(".editron-index__item",
                     {
+                        "data-nav": item.pointer,
                         class: item.editable ? "editron-index__item--editable" : "editron-index__item--default"
                     },
                     collapseIcon,
