@@ -2,6 +2,7 @@
 @import "mithril-material-forms/lib/colors";
 @import "mithril-material-forms/lib/typography";
 @import "mithril-material-forms/lib/units";
+@import "editron-core/sass/colors";
 
 
 .editron-index {
@@ -17,31 +18,12 @@
         color: $mmf-color--error;
     }
 
-    li.isActive > .editron-index__item {
-        background-color: #E0E0E0;
-    }
-
     ul {
         position: relative;
     }
 
     .editron-editable-index-list {
-        // transition: height 0.25s ease-out;
         overflow: hidden;
-    }
-
-    .editron-index__icon--collapse {
-        // transition: transform 0.25s ease-out;
-    }
-
-    li.isCollapsed {
-        & > .editron-editable-index-list {
-            height: 0 !important;
-        }
-
-        & .editron-index__icon--collapse {
-            transform: rotate(180deg);
-        }
     }
 }
 
@@ -79,7 +61,7 @@
         overflow: hidden;
 
         text-decoration: none;
-        color: $mmf-color--text;
+        color: $color-primary__text--header;
     }
 
     &--default {
@@ -88,14 +70,14 @@
 
     &--sortable {}
 
-    .editron-index__icon--add:hover {a
+    .editron-index__icon--add:hover {
         .mmf-icon {
             color: $mmf-color--ok;
         }
     }
 
     .editron-index__icon {
-        color: #666;
+        color: $color-primary__text;
     }
 
     .editron-index__icon--move:hover,
@@ -105,9 +87,33 @@
 
     .editron-index__icon--dummy {
         .mmf-icon {
-            color: #999;
+            color: $color-secondary__text;
             cursor: default !important;
         }
         cursor: default !important;
+    }
+}
+
+
+.editron-index li.isActive {
+
+    & > .editron-index__item {
+        background-color: $color-primary__background;
+
+        .editron-index__icon--dummy,
+        .editron-index__icon--dummy .mmf-icon {
+            color: $color-primary__text;
+            cursor: default !important;
+        }
+    }
+}
+
+.editron-index li.isCollapsed {
+    & > .editron-editable-index-list {
+        height: 0 !important;
+    }
+
+    & .editron-index__icon--collapse {
+        transform: rotate(180deg);
     }
 }
