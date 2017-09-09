@@ -6,12 +6,16 @@
   "scripts": {
     "test": "ava"
   },
+  "pre-commit": [
+    "test"
+  ],
   "keywords": [],
   "author": "Sascha Goldhofer <noreply@saschagoldhofer.de> (https://github.com/sagold/)",
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.22.0",
     "eslint": "^3.19.0",
+    "pre-commit": "^1.2.2",
     "sinon": "^3.2.1"
   },
   "publishConfig": {
