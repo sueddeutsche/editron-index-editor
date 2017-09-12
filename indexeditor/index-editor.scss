@@ -35,6 +35,10 @@
     @include font-regular();
 }
 
+// nested list
+.editron-editable-index-list .editron-index__title {
+    color: $mmf-color--secondary;
+}
 
 .editron-index__item {
     height: $mmf-block;
@@ -61,7 +65,7 @@
         overflow: hidden;
 
         text-decoration: none;
-        color: $color-primary__text--header;
+        color: $mmf-color--primary;
     }
 
     &--default {
@@ -70,14 +74,8 @@
 
     &--sortable {}
 
-    // .editron-index__icon--add:hover {
-    //     .mmf-icon {
-    //         color: $mmf-color--primary;
-    //     }
-    // }
-
     .editron-index__icon {
-        color: $color-primary__text;
+        color: $mmf-color--secondary;
     }
 
     .editron-index__icon--move:hover,
@@ -87,7 +85,7 @@
 
     .editron-index__icon--dummy {
         .mmf-icon {
-            color: $color-secondary__text;
+            color: $mmf-color--secondary;
             cursor: default !important;
         }
         cursor: default !important;
@@ -98,11 +96,12 @@
 .editron-index li.isActive {
 
     & > .editron-index__item {
-        background-color: $color-primary__background;
+        color: $mmf-color--primary;
+        background-color: $mmf-color__contrast--lighter;
 
         .editron-index__icon--dummy,
         .editron-index__icon--dummy .mmf-icon {
-            color: $color-primary__text;
+            // color: $mmf-color--primary;
             cursor: default !important;
         }
     }
