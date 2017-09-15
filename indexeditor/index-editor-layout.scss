@@ -1,0 +1,66 @@
+// @import "dragula/dist/dragula.min.css";
+@import "mithril-material-forms/lib/colors";
+@import "mithril-material-forms/lib/typography";
+@import "mithril-material-forms/lib/units";
+@import "mithril-material-forms/lib/export-once";
+
+@if export-once("editron-index-editor/indexeditor/index-editor-layout") {
+
+    .editron-index {
+        li {
+            list-style: none;
+        }
+
+        ul {
+            position: relative;
+        }
+
+        .editron-editable-index-list {
+            overflow: hidden;
+        }
+    }
+
+    .editron-index-list {
+        padding-bottom: $mmf-block;
+    }
+
+    .editron-index__item {
+        height: $mmf-block;
+        display: flex;
+        flex-direction: row;
+
+        .editron-index__icon {
+            // @include icon();
+            flex-shrink: 0;
+            width: $mmf-block;
+            height: $mmf-block;
+        }
+
+        .editron-index__title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 2;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        &--default {
+            padding-left: $mmf-block;
+        }
+
+        &--sortable {}
+    }
+
+    .editron-index li.isCollapsed {
+        & > .editron-editable-index-list {
+            height: 0 !important;
+        }
+
+        & .editron-index__icon--collapse {
+            transform: rotate(180deg);
+        }
+    }
+}
