@@ -1,17 +1,21 @@
 {
   "name": "editron-index-editor",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Editron - overview navigation editor",
   "main": "index.js",
   "scripts": {
     "test": "ava"
   },
+  "pre-commit": [
+    "test"
+  ],
   "keywords": [],
   "author": "Sascha Goldhofer <noreply@saschagoldhofer.de> (https://github.com/sagold/)",
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.22.0",
     "eslint": "^3.19.0",
+    "pre-commit": "^1.2.2",
     "sinon": "^3.2.1"
   },
   "publishConfig": {
@@ -19,10 +23,10 @@
   },
   "dependencies": {
     "dragula": "^3.7.2",
-    "editron-core": "sueddeutsche/editron-core#develop",
+    "editron-core": "^2.0.0",
     "gson-pointer": "^2.1.3",
     "mithril": "lhorie/mithril.js#next",
-    "mithril-material-forms": "sueddeutsche/mithril-material-forms#develop"
+    "mithril-material-forms": "^2.0.0"
   },
   "ava": {
     "files": [

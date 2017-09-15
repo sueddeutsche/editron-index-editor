@@ -1,0 +1,75 @@
+// @import "dragula/dist/dragula.min.css";
+@import "mithril-material-forms/lib/colors";
+@import "mithril-material-forms/lib/typography";
+@import "mithril-material-forms/lib/units";
+@import "mithril-material-forms/lib/export-once";
+
+@if export-once("editron-index-editor/indexeditor/index-editor-theme") {
+
+    .editron-index {
+        a {
+            font-size: $mmf-text-size--meta; // $mmf-text-size--list;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li.hasError > .editron-index__item > a.editron-index__title {
+            color: $mmf-color--error;
+        }
+    }
+
+    .editron-index__item--sortable > a.editron-index__title {
+        @include font-regular();
+    }
+
+    // nested list
+    .editron-editable-index-list .editron-index__title {
+        color: $mmf-color--dark;
+    }
+
+    .editron-index__item {
+        opacity: $mmf-opacity--primary;
+
+        .editron-index__title {
+            @include font-bold();
+            text-decoration: none;
+            color: $mmf-color--dark;
+        }
+
+        &--sortable {}
+
+        .editron-index__icon {
+            color: $mmf-color--dark;
+        }
+
+        .editron-index__icon--move:hover,
+        .editron-index__icon--move:hover .mmf-icon {
+            cursor: ns-resize !important;
+        }
+
+        .editron-index__icon--dummy {
+            .mmf-icon {
+                color: $mmf-color--dark;
+                cursor: default !important;
+            }
+            cursor: default !important;
+        }
+    }
+
+
+    .editron-index li.isActive {
+
+        & > .editron-index__item {
+            color: $mmf-color--dark;
+            background-color: rgba($mmf-color--light, $mmf-opacity--primary);
+
+            .editron-index__icon--dummy,
+            .editron-index__icon--dummy .mmf-icon {
+
+                cursor: default !important;
+            }
+        }
+    }
+}
