@@ -15,7 +15,7 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "browser-env": "^3.2.0",
-    "editron-core": "2.x",
+    "editron-core": "^2.1.0",
     "eslint": "^3.19.0",
     "pre-commit": "^1.2.2",
     "sinon": "^3.2.1"
