@@ -20,7 +20,7 @@
     "pre-commit": "^1.2.2",
     "sinon": "^3.2.1",
     "mithril": "1.x",
-    "mithril-material-forms": "2.x"
+    "mithril-material-forms": "^2.1.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
