@@ -1,6 +1,6 @@
 {
   "name": "editron-index-editor",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Editron - overview navigation editor",
   "main": "index.js",
   "scripts": {
@@ -15,12 +15,12 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "browser-env": "^3.2.0",
-    "editron-core": "3.x",
+    "editron-core": "^3.2.1",
     "eslint": "^3.19.0",
     "pre-commit": "^1.2.2",
     "sinon": "^3.2.1",
     "mithril": "1.x",
-    "mithril-material-forms": "^2.2.0"
+    "mithril-material-forms": "^2.3.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
