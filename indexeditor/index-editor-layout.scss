@@ -18,6 +18,21 @@
         .editron-editable-index-list {
             overflow: hidden;
         }
+
+        .mmf-icon--thumbnail {
+            // background-size: 100 * (1 - ($mmf-unit / $mmf-block)) + %;
+            // background-position: left center;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: $mmf-block - 2 * $mmf-unit;
+            height: $mmf-block - 2 * $mmf-unit;
+            margin-top: $mmf-unit;
+            margin-left: $mmf-unit;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
     }
 
     .editron-index-list {
