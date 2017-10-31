@@ -1,20 +1,19 @@
 const UISchema = require("editron-core/utils/UISchema");
-const UI_PROPERTY = UISchema.UI_PROPERTY;
-const gp = require("gson-pointer");
-// const isUrl = /(((https?|file):\/\/)|.{8}-.{4}-.{4}-.{4}-.{12})/;
+
+
+function sanitizeString(title = "", maxLength = 40) {
+    return (title && title.substr) ? title.replace(/<.*?>/g, "").substr(0, maxLength) : title;
+}
+
 
 module.exports = function buildTree(pointer, data, controller, depth = 1) {
-    const schema = controller.schema().get(pointer);
-
     // @ui-option hidden
-    if (UISchema.isHidden(schema)) {
+    if (UISchema.getOption(pointer, controller, "hidden")) {
         return undefined;
     }
 
-    // @ui-option title
-    let title = UISchema.resolveReference(pointer, controller, gp.get(schema, `#/${UI_PROPERTY}/title-overview`));
-    title = UISchema.isEmpty(title) ? UISchema.getTitle(schema) : UISchema.sanitizeString(title);
-    const icon = UISchema.getIcon(schema);
+    const title = sanitizeString(UISchema.getOption(pointer, controller, "index:title", "title"));
+    const icon = UISchema.getOption(pointer, controller, "index:icon", "icon");
 
     if (Array.isArray(data)) {
         return {

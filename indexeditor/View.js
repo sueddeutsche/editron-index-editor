@@ -7,12 +7,36 @@ const isNodeContext = require("editron-core/utils/isNodeContext");
 
 if (!isNodeContext()) {
     require("dragula/dist/dragula.min.css");
+
 } else {
     dragula = () => ({
         on: Function.prototype,
         destroy: Function.prototype
     });
 }
+
+function isUrl(value) {
+    return typeof value === "string" && /^https?:\/\//.test(value);
+}
+
+
+const Icon = {
+    view(vnode) {
+        if (isUrl(vnode.attrs.icon)) {
+            return m("span.editron-index__icon.editron-index__icon--dummy",
+                m("i.mmf-icon.mmf-icon--thumbnail", { style: `background-image: url(${vnode.attrs.icon})` })
+            );
+        }
+
+        if (vnode.attrs.icon) {
+            return m("span.editron-index__icon.editron-index__icon--dummy",
+                m("i.mmf-icon", vnode.attrs.icon)
+            );
+        }
+
+        return m("span.editron-index__icon.editron-index__icon--dummy");
+    }
+};
 
 
 function getCollapsedState(pointer) {
@@ -88,9 +112,7 @@ const EditableList = {
                         {
                             "data-nav": item.pointer
                         },
-                        m("span.editron-index__icon.editron-index__icon--dummy",
-                            item.icon ? m("i.mmf-icon", item.icon) : ""
-                        ),
+                        m(Icon, { icon: item.icon }),
                         m("a.editron-index__title",
                             {
                                 href: `#${getId(item.pointer)}`,
