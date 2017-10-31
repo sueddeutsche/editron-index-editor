@@ -6,7 +6,7 @@
   "scripts": {
     "test": "ava"
   },
-  "pre-commit": [
+  "pre-push": [
     "test"
   ],
   "keywords": [],
@@ -15,12 +15,11 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "browser-env": "^3.2.0",
-    "editron-core": "^3.5.1",
+    "editron-core": "4.x",
     "eslint": "^3.19.0",
-    "pre-commit": "^1.2.2",
     "sinon": "^3.2.1",
     "mithril": "1.x",
-    "mithril-material-forms": "^2.3.2"
+    "mithril-material-forms": "2.x"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -30,7 +29,7 @@
     "gson-pointer": "^2.1.3"
   },
   "peerDependencies": {
-    "editron-core": "3.x",
+    "editron-core": "4.x",
     "mithril": "1.x",
     "mithril-material-forms": "2.x"
   },
