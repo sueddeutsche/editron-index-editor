@@ -6,7 +6,9 @@
   "scripts": {
     "build": "rm -rf build; webpack",
     "dist": "rm -rf dist; NODE_ENV=production webpack",
-    "test": "ava"
+    "test": "ava",
+    "release": "npm run dist",
+    "prepublishOnly": "npm run dist"
   },
   "pre-push": [
     "test"
