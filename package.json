@@ -19,7 +19,7 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "browser-env": "^3.2.0",
-    "editron-core": "4.x",
+    "editron-core": "5.x",
     "eslint": "^3.19.0",
     "sinon": "^3.2.1",
     "mithril": "1.x",
@@ -33,7 +33,7 @@
     "dragula": "^3.7.2"
   },
   "peerDependencies": {
-    "editron-core": "4.x",
+    "editron-core": "5.x",
     "mithril": "1.x",
     "mithril-material-forms": "2.x",
     "gson-pointer": "3.x"
