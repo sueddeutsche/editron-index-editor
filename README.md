@@ -3,50 +3,82 @@
 Adds an editable navigation for a given datapoint (json-pointer).
 
 
-`npm i editron-index-editor`
+`npm i editron-index-editor --save`
 
 
-## Plugin
+## Setup
 
-Add it to your editors list, e.g.
+### Add the bundled editor as a plugin
 
-```js
-const editors = [
-    require("editron-index-editor")
-].concat(require("editron-core-editors"));
+> Use bundled versions of this editor
+
+
+Add the editor after the core-modules and it will register automatically (paths depend on your build-setup)
+
+```html
+<link rel="stylesheet" href="../node_modules/editron-index-editor/dist/editron-index-editor.css">
+
+<!-- plugin editor -->
+<script type="text/javascript" src="../node_modules/editron-core/dist/editron-modules.js"></script>
+<script type="text/javascript" src="../node_modules/editron-core/dist/editron-core.js"></script>
+<script type="text/javascript" src="../node_modules/editron-index-editor/dist/editron-index-editor.js"></script>
 ```
 
-And optional import the custom wysiwyg-editor styles via sass
+And create the index-editor
+
+```js
+const controller = new editronCore.Controller(mySchema, myData);
+// create a main view for your data
+const mainEditor = controller.createEditor("#/subView", document.querySelector("#editor"));
+
+// create a new editor using the index-editor (enabled by option)
+const index = controller.createEditor("#", document.querySelector("#editor-navigation"), {
+    "editron:ui": { index: true }
+});
+
+// the index-editor will notify the location-service for any changes
+const LocationServive = require("editron-core/services/LocationService");
+LocationService.on(LocationService.PAGE_EVENT, function (pointer) {
+    // change entry pointer to `pointer` (item within index has been clicked)
+    // here you may destroy the main view editor and change the entry-point according to the passed pointer:
+    mainEditor.destroy();
+    mainEditor = controller.createEditor(pointer, document.querySelector("#editor"));
+});
+```
+
+
+### Webpack build
+
+> bundle the editor into your editron-application
+
+
+#### Javascript
+
+To use this editor within a webpack build, require the editor and add it to the editors list
+
+```js
+const editronIndexEditor = require("editron-index-editor");
+const editors = [
+    editronIndexEditor
+    ...otherEditors
+];
+const controller = new Editron(schema, data, { editors });
+
+// and follow the example above
+```
+
+
+#### Styles
+
+Optionally import the custom script-editor styles via sass
 
 ```scss
-@import "editron-index-editor/index-editor.scss";
+@import "editron-index-editor/editron-index-editor.scss";
 ```
 
-And initialize explicitely by
+or simply add the bundled css-file (path is depending on your build-setup)
 
-```js
-controller.createEditor("#", document.querySelector("#editor-navigation"), {
-    ui: { index: true }
-});
+```html
+<link rel="stylesheet" href="../node_modules/editron-index-editor/dist/editron-index-editor.css">
 ```
-
-## Example 
-
-```js
-const Controller = require("editron-core/Controller");
-
-// instantiate controller
-const controller = new Controller(
-    mySchema, // schema used to build form
-    myDefaultData, // some data like { inputform: [...] }
-    [
-        require("editron-index-editor")
-    ].concat(require("editron-core-editors") // a list of editron-editors
-);
-
-controller.createEditor("#", document.querySelector("#editor-navigation"), {
-    ui: { index: true }
-});
-```
-
 
