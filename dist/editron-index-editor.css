@@ -1,0 +1,88 @@
+.editron-index a {
+  font-size: 0.8em; }
+
+.editron-index li {
+  list-style: none; }
+
+.editron-index li.hasError > .editron-index__item > a.editron-index__title {
+  color: #d50000; }
+
+.editron-index__item--sortable > a.editron-index__title {
+  font-family: "Roboto";
+  font-weight: 400; }
+
+.editron-editable-index-list .editron-index__title {
+  color: #000; }
+
+.editron-index__item {
+  opacity: 0.87; }
+  .editron-index__item .editron-index__title {
+    font-family: "Roboto";
+    font-weight: 700;
+    text-decoration: none;
+    color: #000; }
+  .editron-index__item .editron-index__icon {
+    color: #000; }
+  .editron-index__item .editron-index__icon--move:hover,
+  .editron-index__item .editron-index__icon--move:hover .mmf-icon {
+    cursor: ns-resize !important; }
+  .editron-index__item .editron-index__icon--dummy {
+    cursor: default !important; }
+    .editron-index__item .editron-index__icon--dummy .mmf-icon {
+      color: #000;
+      cursor: default !important; }
+
+.editron-index li.isActive > .editron-index__item {
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.87); }
+  .editron-index li.isActive > .editron-index__item .editron-index__icon--dummy,
+  .editron-index li.isActive > .editron-index__item .editron-index__icon--dummy .mmf-icon {
+    cursor: default !important; }
+
+.editron-index li {
+  list-style: none; }
+
+.editron-index ul {
+  position: relative; }
+
+.editron-index .editron-editable-index-list {
+  overflow: hidden; }
+
+.editron-index .mmf-icon--thumbnail {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 32px;
+  height: 32px;
+  margin-top: 8px;
+  margin-left: 8px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); }
+
+.editron-index-list {
+  padding-bottom: 48px; }
+
+.editron-index__item {
+  height: 48px;
+  display: flex;
+  flex-direction: row; }
+  .editron-index__item .editron-index__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px; }
+  .editron-index__item .editron-index__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }
+  .editron-index__item--default {
+    padding-left: 48px; }
+
+.editron-index li.isCollapsed > .editron-editable-index-list {
+  height: 0 !important; }
+
+.editron-index li.isCollapsed .editron-index__icon--collapse {
+  transform: rotate(180deg); }
