@@ -1,4 +1,4 @@
-const UISchema = require("editron-core/utils/UISchema");
+const UISchema = require("editron/utils/UISchema");
 
 
 function sanitizeString(title = "", maxLength = 40) {

@@ -1,9 +1,9 @@
 /* eslint quote-props: 0 */
 const m = require("mithril");
-const SessionService = require("editron-core/services/SessionService");
-const getId = require("editron-core/utils/getID");
+const SessionService = require("editron/services/SessionService");
+const getId = require("editron/utils/getID");
 let dragula = require("dragula");
-const isNodeContext = require("editron-core/utils/isNodeContext");
+const isNodeContext = require("editron/utils/isNodeContext");
 
 if (!isNodeContext()) {
     require("dragula/dist/dragula.min.css");
@@ -11,7 +11,8 @@ if (!isNodeContext()) {
 } else {
     dragula = () => ({
         on: Function.prototype,
-        destroy: Function.prototype
+        destroy: Function.prototype,
+        onremove: Function.prototype
     });
 }
 

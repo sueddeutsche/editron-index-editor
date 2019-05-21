@@ -1,5 +1,8 @@
 const IndexEditor = require("../../indexeditor");
-const testEditorIntegration = require("editron-core/test/support/testEditorIntegration");
+const testEditorIntegration = require("editron/test/support/testEditorIntegration");
+
+const window = require("mithril/test-utils/browserMock.js")();
+Object.defineProperty(global, 'window', { get: () => window });
 
 
 testEditorIntegration(

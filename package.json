@@ -8,7 +8,14 @@
     "dist": "rm -rf dist; NODE_ENV=production webpack",
     "test": "ava",
     "release": "npm run dist",
-    "prepublishOnly": "npm run dist"
+    "prepublishOnly": "npm run dist",
+    "postinstall": "npm --prefix node_modules/editron install"
+  },
+  "homepage": "https://github.com/sueddeutsche/editron-index-editor",
+  "bugs": "https://github.com/sueddeutsche/editron-index-editor/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sueddeutsche/editron-index-editor.git"
   },
   "pre-push": [
     "test"
@@ -19,12 +26,14 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "browser-env": "^3.2.0",
-    "editron-core": "5.x",
+    "editron": "6.x",
     "eslint": "^3.19.0",
     "sinon": "^3.2.1",
     "mithril": "1.x",
     "mithril-material-forms": "2.x",
-    "gson-pointer": "3.x"
+    "gson-pointer": "3.x",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -33,7 +42,7 @@
     "dragula": "^3.7.2"
   },
   "peerDependencies": {
-    "editron-core": "5.x",
+    "editron": "6.x",
     "mithril": "1.x",
     "mithril-material-forms": "2.x",
     "gson-pointer": "3.x"
@@ -43,7 +52,7 @@
       "test/**/*.test.js"
     ],
     "require": [
-      "editron-core/test/support/setupBrowserEnv.js"
+      "editron/test/support/setupBrowserEnv.js"
     ],
     "verbose": true
   }

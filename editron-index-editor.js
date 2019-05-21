@@ -1,3 +1,3 @@
-const plugin = require("editron-core/plugin");
+const plugin = require("editron/plugin");
 
 plugin.editor(require("./indexeditor"));

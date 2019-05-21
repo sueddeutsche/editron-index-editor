@@ -2,13 +2,13 @@ const m = require("mithril");
 const gp = require("gson-pointer");
 const View = require("./View");
 const buildTree = require("./buildTree");
-const UI_PROPERTY = require("editron-core/utils/UISchema").UI_PROPERTY;
+const UI_PROPERTY = require("editron/utils/UISchema").UI_PROPERTY;
 
 
 class OverviewEditor {
 
     static editorOf(pointer, controller, options = {}) {
-        return options[UI_PROPERTY] && options[UI_PROPERTY].index === true;
+        return options.index === true;
     }
 
     constructor(pointer, controller, options) {
@@ -61,8 +61,7 @@ class OverviewEditor {
         this.controller = controller;
 
         this.$element = controller.createElement(".editron-index");
-        this.addError = controller.validator().observe(pointer, this.addError.bind(this), true);
-        this.clearErrors = controller.validator().on("beforeValidation", this.clearErrors.bind(this), true);
+        this.setErrors = controller.validator().observe(pointer, this.setErrors.bind(this), true);
         this.onUpdate = controller.data().observe(pointer, this.onUpdate.bind(this), true);
         this.render();
         this.update();
@@ -70,14 +69,13 @@ class OverviewEditor {
 
     destroy() {
         if (this.viewModel) {
-            this.controller.removeEditor(this);
+            this.controller.removeInstance(this);
+            this.viewModel = null;
 
             m.render(this.$element, m("i"));
             this.controller.data().removeObserver(this.pointer, this.onUpdate);
-            this.controller.validator().removeObserver(this.pointer, this.addError);
-            this.controller.validator().off("beforeValidation", this.clearErrors);
+            this.controller.validator().removeObserver(this.pointer, this.setErrors);
             this.controller.location().off(this.controller.location().TARGET_EVENT, this.onLocationChange);
-            this.viewModel = null;
         }
     }
 
@@ -86,17 +84,8 @@ class OverviewEditor {
         this.update();
     }
 
-    addError(error) {
-        if (error.severity === "warning") {
-            return;
-        }
-
-        this.viewModel.errors.push(error);
-        this.render();
-    }
-
-    clearErrors() {
-        this.viewModel.errors.length = 0;
+    setErrors(errors) {
+        this.viewModel.errors = errors.filter(error => error.type === "error");
         this.render();
     }
 
@@ -123,8 +112,8 @@ class OverviewEditor {
 
         const oldPointer = this.pointer;
         this.pointer = newPointer;
-        this.controller.validator().removeObserver(oldPointer, this.addError, true);
-        this.controller.validator().observe(newPointer, this.addError, true);
+        this.controller.validator().removeObserver(oldPointer, this.setErrors, true);
+        this.controller.validator().observe(newPointer, this.setErrors, true);
         this.controller.data().removeObserver(oldPointer, this.onUpdate, true);
         this.controller.data().observe(newPointer, this.onUpdate, true);
 
