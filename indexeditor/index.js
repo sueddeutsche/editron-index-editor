@@ -8,7 +8,7 @@ const UI_PROPERTY = require("editron/utils/UISchema").UI_PROPERTY;
 class OverviewEditor {
 
     static editorOf(pointer, controller, options = {}) {
-        return options.index === true;
+        return options["editor:index"] === true;
     }
 
     constructor(pointer, controller, options) {

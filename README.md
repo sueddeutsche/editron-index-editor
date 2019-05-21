@@ -33,7 +33,7 @@ const mainEditor = controller.createEditor("#/subView", document.querySelector("
 
 // create a new editor using the index-editor (enabled by option)
 const index = controller.createEditor("#", document.querySelector("#editor-navigation"), {
-    "editron:ui": { index: true }
+    "editron:ui": { "editor:index": true }
 });
 
 // the index-editor will notify the location-service for any changes
