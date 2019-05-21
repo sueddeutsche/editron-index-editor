@@ -35,18 +35,30 @@
         <script type="text/javascript">
             window.jsonSchema = {
                 type: "object",
-                required: ["list"],
+                required: ["entry", "list"],
                 "editron:ui": { index: true },
                 properties: {
+                    entry: {
+                        type: "string",
+                        title: "An entry"
+                    },
                     list: {
-                        type: "array"
+                        title: "Simple list",
+                        type: "array",
+                        items: {
+                            type: "string",
+                            title: "a list item",
+                            "editron:ui": {
+                                "index:title": "/"
+                            }
+                        }
                     }
                 }
             };
             const { Controller } = window.editron;
-            const controller = new Controller(window.jsonSchema);
+            const controller = new Controller(window.jsonSchema, { list: ["first"] } );
             console.log(controller.editors);
-            controller.createEditor("#", document.querySelector(".editor"), {});
+            controller.createEditor("#", document.querySelector(".editor"));
         </script>
 
     </body>
