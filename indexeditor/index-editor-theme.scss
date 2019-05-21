@@ -6,6 +6,10 @@
 
 @if export-once("editron-index-editor/indexeditor/index-editor-theme") {
 
+    li.gu-mirror {
+        list-style: none;
+    }
+
     .editron-index {
         a {
             font-size: $mmf-text-size--meta; // $mmf-text-size--list;
