@@ -2,7 +2,6 @@ const m = require("mithril");
 const gp = require("gson-pointer");
 const View = require("./View");
 const buildTree = require("./buildTree");
-const UI_PROPERTY = require("editron/utils/UISchema").UI_PROPERTY;
 
 
 class OverviewEditor {
@@ -85,7 +84,8 @@ class OverviewEditor {
     }
 
     setErrors(errors) {
-        this.viewModel.errors = errors.filter(error => error.type === "error");
+        console.log("index errors", errors);
+        this.viewModel.errors = errors.filter(error => error.severity !== "warning");
         this.render();
     }
 
