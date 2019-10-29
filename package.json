@@ -28,7 +28,7 @@
     "ava": "^0.22.0",
     "browser-env": "^3.2.0",
     "editron": "6.x",
-    "eslint": "^3.19.0",
+    "eslint": "^6.6.0",
     "gson-pointer": "3.x",
     "mithril": "1.x",
     "mithril-material-forms": "2.x",
